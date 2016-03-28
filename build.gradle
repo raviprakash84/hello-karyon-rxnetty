@@ -62,7 +62,7 @@ task fatJar(type: Jar) {
             'Implementation-Version': version,
             'Main-Class': 'com.kenzan.karyon.rxnetty.KaryonRxNettyExample'
     }
-    baseName = project.name + '-allNew'
+    baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
@@ -71,8 +71,8 @@ task fatJar(type: Jar) {
 task packDeb(type: Deb, dependsOn: fatJar) {
 
   packageName = project.name
-  version = '3'
-  release '3'
+  version = '4'
+  release '4'
 
   requires('openjdk-7-jre-headless')
   from('build/libs/.') {
